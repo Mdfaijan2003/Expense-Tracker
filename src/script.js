@@ -56,15 +56,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   toggleChart.addEventListener("click", function () {
-    // Toggle the visibility of the chart container
     if (chartContainer.style.display === "none") {
       chartContainer.style.display = "block";
 
-      // Render the chart only once
       if (!chartRendered) {
         const ctx = document.getElementById("expenseChart").getContext("2d");
 
-        // Example data; replace with your actual expense data
         const labels = expenseList.map((item) => item.name);
         const data = expenseList.map((item) => item.amount);
         const colors = [
@@ -82,10 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const expenseData = {
           labels: labels,
 
-          // "Rent",
-          // "Groceries",
-          // "Utilities",
-          // "Transportation",
           datasets: [
             {
               label: "Expenses",
@@ -104,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         const config = {
-          type: "bar", // You can change this to 'line', 'pie', etc.
+          type: "bar",
           data: expenseData,
           options: {
             responsive: true,
