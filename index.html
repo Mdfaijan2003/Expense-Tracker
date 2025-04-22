@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="./src/output.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body
+  class="bg-gradient-to-tr from-first via-sec to-third text-white font-montserrat min-h-screen flex flex-col items-center justify-center px-4 sm:px-6">
+
+  <div id="main-container"
+    class="bg-[#1F1D2B] p-6 sm:p-10 rounded-2xl shadow-2xl w-full max-w-md  border border-[#2D3142] text-base">
+
+    <h1 class="text-3xl sm:text-4xl p-4 font-bold text-center tracking-wide text-accent2 flex items-center gap-2">
+      <i data-lucide="wallet-cards" class="w-6 h-6 sm:w-8 sm:h-8"></i> Expense Tracker
+    </h1>
+
+    <form id="expense-form" class="w-full flex flex-col gap-4">
+      <div class="relative">
+        <i data-lucide="file-text"
+          class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none"></i>
+        <input id="input-text" type="text" placeholder="Expense name"
+          class="w-full bg-[#2D3142] text-white placeholder:text-gray-400 pl-12 pr-4 py-3 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-accent transition" required />
+      </div>
+
+      <div class="relative">
+        <i data-lucide="dollar-sign"
+          class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none"></i>
+        <input id="input-Amount" type="number" placeholder="Amount"
+          class="w-full bg-[#2D3142] text-white placeholder:text-gray-400 pl-12 pr-4 py-3 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-accent transition" required/>
+      </div>
+
+      <button id="addExpenseBtn" type="submit"
+        class="bg-accent hover:bg-yellow-500 text-black py-3 rounded-lg font-semibold tracking-wide shadow-lg transition-all duration-200 hover:scale-105 flex items-center justify-center gap-2">
+        <i data-lucide="plus-circle" class="w-5 h-5"></i> Add Expense
+      </button>
+    </form>
+
+    <div id="items" class="w-full">
+      <h2 class="text-2xl font-semibold mb-3 text-accent2 border-b border-gray-600 p-4 pb-2 flex items-center gap-2">
+        <i data-lucide="list" class="w-6 h-6 text-accent2 hover:text-black" id="burger-icon"></i> Expenses
+      </h2>
+
+      <ul id="expense-list" class="space-y-3 mb-5 block"></ul>
+
+      <p class="text-lg font-bold text-accent flex items-center justify-end gap-2">
+        <i data-lucide="wallet" class="w-5 h-5 text-accent"></i> Total: ₹<span id="total">0.00</span>
+      </p>
+    </div>
+  </div>
+
+  <span id="toggleChart"
+    class="cursor-pointer text-accent2 hover:text-yellow-500 font-semibold tracking-wide flex items-center gap-2 py-2 underline mt-4">
+    <i data-lucide="bar-chart-4" class="w-5 h-5"></i> Show Expense Chart
+  </span>
+
+  <div id="chartContainer" class="hidden w-full max-w-xl mt-5 p-4 bg-[#c3d5e1] rounded-md shadow-2xl">
+    <canvas id="expenseChart"></canvas>
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+  <script src="./src/script.js"></script>
+</body>
+
+</html>
